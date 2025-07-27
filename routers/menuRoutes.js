@@ -27,6 +27,7 @@ router.post('/', async(req, res) =>{
     }
 })
 
+// The variable tasyeType take the value from the url
 router.get('/:tasteType', async(req, res)=> {
     try{
 
