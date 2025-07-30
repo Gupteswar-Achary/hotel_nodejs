@@ -3,11 +3,12 @@ const app = express()
 const db = require('./db')
 const personRouts = require('./routers/personRoutes')
 const menuRouts = require('./routers/menuRoutes')
+require('dotenv').config();
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
 
-const port = 8000
+const PORT = process.env.PORT || 8000;
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -16,6 +17,6 @@ app.get('/', (req, res) => {
 app.use('/person', personRouts)
 app.use('/menu', menuRouts)
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
 })
